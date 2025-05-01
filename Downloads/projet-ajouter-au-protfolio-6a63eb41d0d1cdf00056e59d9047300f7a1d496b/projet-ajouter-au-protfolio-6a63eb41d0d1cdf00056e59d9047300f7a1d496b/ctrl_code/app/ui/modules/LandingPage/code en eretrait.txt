@@ -1,0 +1,92 @@
+  {/* <div className="min-h-screen">
+        <div className="mt-32 flex max-sm:flex-col flex-row w-full">
+          <div className="flex flex-col w-full px-4">
+            <div className="flex flex-col gap-6 font-semibold items-start">
+              <div className="text-3xl capitalize font-FleurDeLeah">
+                <p>
+                  De Gonzague is a
+                  <span className="text-primary_folio"> web designer</span> and
+                </p>
+                <p className="text-primary_folio">front-end developer</p>
+                <p className="capitalize text-gray_folio text-xl font-FleurDeLeah mt-4">
+                  He crafts responsive websites where technologies meet creativity
+                </p>
+              </div>
+
+              {/* Bouton avec animation */}
+              <Button ClassName="flex items-center justify-center px-6 py-3 mt-6 transition-all duration-700">
+                <span className="inline-flex h-full w-full animate-ping rounded-full bg-Hover_Gray_folio opacity-75"></span>
+                <span className="inline-flex size-3 rounded-full bg-primary_folio"></span>
+                <p className="drop-shadow-2xl font-semibold ml-2">
+                  Contact me !!
+                </p>
+              </Button>
+            </div>
+
+            {/* Hashtag */}
+            <div className="mt-56 text-3xl">
+              <Hashtag varianthash="projects" />
+            </div>
+          </div>
+
+          <div className="flex flex-col items-center w-full">
+            <div className="flex items-center justify-center w-full">
+              {/* Images avec animation */}
+              <div className="flex flex-row gap-6 mt-5">
+                <Image
+                  src="asset/Svg/Dots.svg"
+                  alt="Premier plan"
+                  width={150}
+                  height={150}
+                  className="opacity-100 animate-spin"
+                />
+                <Image
+                  src="asset/Svg/Dots.svg"
+                  alt="Premier plan"
+                  width={469}
+                  height={386}
+                  className="opacity-100 animate-spin"
+                />
+              </div>
+
+              {/* Image principale */}
+              <div className="mt-4">
+                <Image
+                  src="/asset/DGZ_IMG.jpeg"
+                  alt="Image principale"
+                  width={469}
+                  height={386}
+                  className="rounded-full border transition duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+                />
+              </div>
+
+              {/* Deuxième image */}
+              <div className="flex justify-around mt-8">
+                <Image
+                  src="asset/Svg/Dots.svg"
+                  alt="Premier plan"
+                  width={469}
+                  height={386}
+                  className="animate-spin opacity-100"
+                />
+                <Image
+                  src="asset/Svg/Dots.svg"
+                  alt="Premier plan"
+                  width={100}
+                  height={100}
+                  className="animate-spin opacity-100"
+                />
+              </div>
+            </div>
+
+            {/* Description */}
+            <div className="w-[469] h-[37] mt-5 border border-gray_folio flex items-center">
+              <span className="h-[16] w-[16] bg-primary_folio m-2.5"></span>
+              <span className="capitalize text-gray_folio items-center justify-center pt-1">
+                front-end developer on <span>DevStudio</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        ZUDCVZY
+      </div>
