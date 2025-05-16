@@ -38,6 +38,14 @@ const Navbar = () => {
     }
   };
 
+  const navLinks = [
+    { href: "/", varianthash: "home" },
+    { href: "/Project", varianthash: "works" },
+    { href: "/AboutMe", varianthash: "about-me" },
+    { href: "/Contact", varianthash: "contacts" },
+  ] as const;
+
+
   const navbarClasses = `
     fixed top-0 left-0 w-full z-[9999]
     transition-all duration-500
@@ -62,18 +70,21 @@ const Navbar = () => {
         <div className="max-w-6xl mx-auto w-full flex items-center justify-between px-4 sm:px-6 lg:px-8 relative">
           {/* Logo */}
           <div className="flex gap-3 items-center">
-            <span className="text-primary_folio font-FcMedium text-lg sm:text-xl">Mr.</span>
-            <Image src="/asset/CI.svg" alt="ci logo" width={24} height={24} priority />
+            <span className="text-primary_folio font-FcMedium text-lg sm:text-xl">
+              Mr.
+            </span>
+            <Image
+              src="/asset/CI.svg"
+              alt="ci logo"
+              width={24}
+              height={24}
+              priority
+            />
           </div>
 
           {/* Menu Desktop */}
           <div className="hidden md:flex gap-10 items-center text-base sm:text-lg lg:text-xl">
-            {[
-              { href: "/", varianthash: "home" },
-              { href: "/Project", varianthash: "works" },
-              { href: "/AboutMe", varianthash: "about-me" },
-              { href: "/Contact", varianthash: "contacts" },
-            ].map(({ href, varianthash }) => {
+            {navLinks.map(({ href, varianthash }) => {
               const isActive = pathname === href || pathname.startsWith(href);
               return (
                 <Link
@@ -107,7 +118,7 @@ const Navbar = () => {
             {/* Bouton menu mobile */}
             <button
               className="md:hidden text-white focus:outline-none focus:ring-2 focus:ring-primary_folio rounded"
-              onClick={e => {
+              onClick={(e) => {
                 e.stopPropagation();
                 setIsOpen(!isOpen);
               }}
@@ -143,12 +154,7 @@ const Navbar = () => {
             </button>
           </div>
           <nav className="flex flex-col items-center gap-8 mt-20 text-2xl">
-            {[
-              { href: "/", varianthash: "home" },
-              { href: "/Project", varianthash: "works" },
-              { href: "/AboutMe", varianthash: "about-me" },
-              { href: "/Contact", varianthash: "contacts" },
-            ].map(({ href, varianthash }) => {
+            {navLinks.map(({ href, varianthash }) => {
               const isActive = pathname === href || pathname.startsWith(href);
               return (
                 <Link

@@ -158,7 +158,7 @@ export const HeroTop = () => {
             priority
           />
           <div
-            className="w-fit p-1 mt-5 ml-0 md:ml-9 border justify-center flex  border-gray_folio flex items-center"
+            className="w-fit p-1 mt-5 ml-0 md:ml-9 border justify-center   border-gray_folio flex items-center"
             ref={badgeRef}
           >
             <span className="h-4 w-4 bg-primary_folio m-2.5 flex"></span>
