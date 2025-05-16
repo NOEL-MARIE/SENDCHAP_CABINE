@@ -6,7 +6,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "@/app/ui/design_system/Button/Button";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import Image from "next/image";
-import { Skills } from "./component/skill/Skills";
 import React from "react";
 import { Hashtag } from "@/app/ui/component/hashtag/Hashtag";
 
@@ -97,7 +96,6 @@ export const About_Me = () => {
         </div>
       </div>
 
-      {/* <Skills /> */}
     
     </div>
   );
