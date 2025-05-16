@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 
-const Loader = (props) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const Loader = () => {
   const svgRef = useRef(null);
 
   useEffect(() => {
@@ -15,9 +16,9 @@ const Loader = (props) => {
       transformOrigin: "center center"
     });
 
-    let lines = gsap.utils.toArray("g.left", svg);
+    const lines = gsap.utils.toArray("g.left", svg);
 
-    let tl = gsap.timeline({ paused: false });
+    const tl = gsap.timeline({ paused: false });
 
     tl.from(
       lines,

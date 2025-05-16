@@ -113,7 +113,7 @@ export const HeroTop = () => {
   return (
     <div
       id="home"
-      className="text-gray_folio font-DancingBold"
+      className="text-gray_folio font-DancingBold pt-16"
       ref={containerRef}
     >
       <Container className="relative flex flex-col md:flex-row h-auto md:h-screen px-4 md:px-8 py-12 md:py-0">
@@ -139,7 +139,7 @@ export const HeroTop = () => {
 
           <Button
             ClassName="flex items-center justify-center px-6 py-3 mt-6 transition-all duration-700"
-            ref={buttonRef}
+            
           >
             <p className="drop-shadow-2xl font-extrabold capitalize animate-bounce text-base sm:text-lg">
               Contact me !!
@@ -152,14 +152,13 @@ export const HeroTop = () => {
           <Image
             src={"/asset/IMG_8281(1).JPG"}
             alt="author image"
-            width={487}
-            height={500}
+            width={307}
+            height={300}
             ref={imageRef}
-            className="w-64 h-auto sm:w-80 md:w-[487px] md:h-[500px] rounded-lg object-cover"
             priority
           />
           <div
-            className="w-fit p-1 mt-5 ml-0 md:ml-9 border border-gray_folio flex items-center"
+            className="w-fit p-1 mt-5 ml-0 md:ml-9 border justify-center flex  border-gray_folio flex items-center"
             ref={badgeRef}
           >
             <span className="h-4 w-4 bg-primary_folio m-2.5 flex"></span>

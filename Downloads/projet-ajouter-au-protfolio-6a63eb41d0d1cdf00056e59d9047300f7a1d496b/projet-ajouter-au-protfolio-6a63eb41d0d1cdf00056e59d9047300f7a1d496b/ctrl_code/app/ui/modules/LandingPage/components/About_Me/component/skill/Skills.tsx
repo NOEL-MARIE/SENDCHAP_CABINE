@@ -40,7 +40,7 @@ export const Skills = () => {
           <BoxFeature
             title={skillsData[0].title}
             description={skillsData[0].items.join(" • ")}
-            className="md:col-span-2 lg:col-span-1 h-full"
+            className="md:col-span-2 lg:col-span-1"
           />
 
           {/* Groupement des deux colonnes */}

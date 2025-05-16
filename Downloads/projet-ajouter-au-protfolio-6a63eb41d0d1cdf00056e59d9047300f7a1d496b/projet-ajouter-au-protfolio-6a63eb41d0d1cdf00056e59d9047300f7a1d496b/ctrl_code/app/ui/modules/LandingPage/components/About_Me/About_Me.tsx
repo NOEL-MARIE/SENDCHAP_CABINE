@@ -65,10 +65,10 @@ export const About_Me = () => {
             j’explore sans relâche les dernières technologies et frameworks pour
             repousser les limites du possible. Chaque projet est un défi que je
             relève avec discipline, courage et détermination. 🔎 Mes valeurs :
-            <br />
-            ✅ Persévérance – Rien ne m’arrête face aux défis 💪<br />
-            ✅ Courage – Oser l’innovation et affronter l’inconnu 🦾<br />
-            ✅ Discipline – La clé du succès et de l’excellence 🏆<br />
+            
+            ✅ Persévérance – Rien ne m’arrête face aux défis 💪
+            ✅ Courage – Oser l’innovation et affronter l’inconnu 🦾
+            ✅ Discipline – La clé du succès et de l’excellence 🏆
             <span className="italic block my-3">
               &rdquo;La discipline est le pont entre les objectifs et les réalisations.&rdquo; – Jim Rohn 💬
             </span>
@@ -76,7 +76,6 @@ export const About_Me = () => {
           </div>
 
           <Button
-            ref={buttonRef}
             ClassName="flex flex-row items-center justify-center capitalize font-DancingBold w-fit"
             variant="read more"
           >
@@ -91,15 +90,15 @@ export const About_Me = () => {
             ref={imageRef}
             src={"/asset/Images/one piece.jpeg"}
             alt="one piece.jpeg"
-            width={339}
-            height={200}
-            className="rounded-lg shadow-lg object-cover w-64 h-40 sm:w-80 sm:h-52 md:w-[339px] md:h-[200px] text-gray_folio"
+            width={539}
+            height={200} 
+            className=""
           />
         </div>
       </div>
 
-      <Skills />
-      <div className="mb-10" />
+      {/* <Skills /> */}
+    
     </div>
   );
 };
