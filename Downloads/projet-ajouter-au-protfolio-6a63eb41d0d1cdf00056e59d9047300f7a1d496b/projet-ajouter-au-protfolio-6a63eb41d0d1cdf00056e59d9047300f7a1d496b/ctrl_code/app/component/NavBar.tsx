@@ -7,6 +7,8 @@ import { NavbarHashtags } from "../ui/component/navlink/navLinks";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { Media } from "../ui/design_system/media/media";
+import CursorFollower from "../ui/CursorFollower";
+import ThemeToggle from "../ui/ThemeToggle";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -31,7 +33,9 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isOpen]);
 
-  const handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleLanguageChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
     const selectedLanguage = event.target.value;
     if (selectedLanguage) {
       window.location.href = selectedLanguage;
@@ -43,8 +47,8 @@ const Navbar = () => {
     { href: "/Project", varianthash: "works" },
     { href: "/AboutMe", varianthash: "about-me" },
     { href: "/Contact", varianthash: "contacts" },
+    { href: "/Project_Carrousel", varianthash: "Project_View" },
   ] as const;
-
 
   const navbarClasses = `
     fixed top-0 left-0 w-full z-[9999]
@@ -57,6 +61,7 @@ const Navbar = () => {
 
   return (
     <>
+      <CursorFollower />
       {/* Media composant, fixé */}
       {/* <Image src="/asset/Svg/Dots.svg" alt="Dots.svg" className="z-0" width={50} height={50}/> */}
       <Media className="ml-40 z-[10000] fixed top-0 left-0 isolation-isolate pointer-events-none" />
@@ -102,7 +107,7 @@ const Navbar = () => {
               );
             })}
           </div>
-
+          <ThemeToggle />
           {/* Contrôles droite */}
           <div className="flex items-center gap-4">
             {/* Sélecteur langue desktop */}

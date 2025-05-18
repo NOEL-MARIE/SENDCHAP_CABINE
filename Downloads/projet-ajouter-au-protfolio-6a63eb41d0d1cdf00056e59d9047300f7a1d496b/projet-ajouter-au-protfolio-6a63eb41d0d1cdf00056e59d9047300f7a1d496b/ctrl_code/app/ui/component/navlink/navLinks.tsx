@@ -10,35 +10,32 @@ interface Props {
     | "all-media"
     | "my-fun-facts"
     | "small-projects"
+    | "Project_View"
     | "complete-apps";
 }
+
+// Dictionnaire des labels lisibles
+const displayTextMap: Record<NonNullable<Props["varianthash"]>, string> = {
+  home: "home",
+  "about-me": "about me",
+  works: "works",
+  contacts: "contacts",
+  "all-media": "all media",
+  "my-fun-facts": "my fun facts",
+  "small-projects": "small projects",
+  Project_View: "project view",
+  "complete-apps": "complete apps",
+};
 
 export const NavbarHashtags = ({ varianthash = "home" }: Props) => {
   const pathname = usePathname() ?? "/";
 
-  // Texte affiché en fonction de `varianthash`
-  const displayText =
-    varianthash === "about-me"
-      ? "about me"
-      : varianthash === "works"
-      ? "works"
-      : varianthash === "contacts"
-      ? "contacts"
-      : varianthash === "all-media"
-      ? "all media"
-      : varianthash === "my-fun-facts"
-      ? "my fun facts"
-      : varianthash === "small-projects"
-      ? "small projects"
-      : varianthash === "complete-apps"
-      ? "complete apps"
-      : "home";
+  const displayText = displayTextMap[varianthash];
 
-  // Normalisation en minuscules
   const normalizedPathname = pathname.toLowerCase();
-  const normalizedHash = varianthash === "home" ? "/" : `/${varianthash.toLowerCase()}`;
+  const normalizedHash =
+    varianthash === "home" ? "/" : `/${varianthash.toLowerCase()}`;
 
-  // Vérifie si le lien est actif (exact ou début de chemin)
   const isActive =
     normalizedPathname === normalizedHash ||
     normalizedPathname.startsWith(normalizedHash + "/");

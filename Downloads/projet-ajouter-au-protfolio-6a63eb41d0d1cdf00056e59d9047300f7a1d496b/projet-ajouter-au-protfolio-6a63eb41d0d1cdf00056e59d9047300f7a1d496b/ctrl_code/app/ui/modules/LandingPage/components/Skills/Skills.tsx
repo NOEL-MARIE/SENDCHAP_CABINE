@@ -79,7 +79,6 @@ export const Skills_Page = () => {
         {/* Boîtes de compétences */}
         <div className="flex justify-between gap-4 ml-auto mr-4">
           {/* Colonne 1 */}
-          <div ref={el => (columnRefs.current[0] = el!)}>
             <BoxFeature
               title="Languages"
               description="JavaScript • TypeScript • HTML5 • CSS3"
@@ -89,7 +88,6 @@ export const Skills_Page = () => {
           {/* Colonne 2 */}
           <div
             className="flex flex-col gap-2"
-            ref={el => (columnRefs.current[1] = el!)}
           >
             <BoxFeature
               title="Databases"
@@ -104,7 +102,6 @@ export const Skills_Page = () => {
           {/* Colonne 3 */}
           <div
             className="flex flex-col gap-2"
-            ref={el => (columnRefs.current[2] = el!)}
           >
             <BoxFeature
               title="Frameworks"
@@ -117,6 +114,5 @@ export const Skills_Page = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };

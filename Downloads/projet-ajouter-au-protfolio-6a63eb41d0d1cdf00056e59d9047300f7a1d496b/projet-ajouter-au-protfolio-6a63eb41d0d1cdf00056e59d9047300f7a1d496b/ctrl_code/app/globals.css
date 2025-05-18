@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes oval {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+  50% { transform: translateY(-20px) translateX(10px) scale(1.05); }
+}
+
+@keyframes oval-slow {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+  50% { transform: translateY(-10px) translateX(5px) scale(1.02); }
+}
+
+.animate-oval {
+  animation: oval 6s ease-in-out infinite;
+}
+
+.animate-oval-slow {
+  animation: oval-slow 8s ease-in-out infinite;
+}
+
+
 @layer utilities {
   @keyframes cycleColors {
     0%   { background-color: #ff0000; }   /* rouge */

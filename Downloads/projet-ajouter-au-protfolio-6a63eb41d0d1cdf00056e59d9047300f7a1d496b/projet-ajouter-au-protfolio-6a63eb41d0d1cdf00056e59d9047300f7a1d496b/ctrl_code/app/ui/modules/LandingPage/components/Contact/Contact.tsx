@@ -36,7 +36,7 @@ export const Contact = () => {
   return (
     <div ref={contactRef} id="contacts" className="pt-10">
       <Hashtag varianthash="contacts" />
-      <div className="flex flex-row justify-between mt-6 mb-14 items-center">
+      <div className="flex flex-row justify-between mt-6 pb-14 items-center">
         <div>
           <p className="font-FleurDeLeah text-justify text-gray_folio">
             I’m interested in freelance opportunities. <br />

@@ -19,6 +19,10 @@ interface Props {
   isLoading?: boolean;
   ClassName?: string;
   children?: React.ReactNode;
+  href?: string; // Ajout de la prop href pour gérer les liens
+  target?: string; // Pour ouvrir dans un nouvel onglet si besoin
+  rel?: string; // Sécurité pour les liens externes
+  onClick?: () => void; // Pour gérer un clic personnalisé
 }
 
 export const Button = ({
@@ -26,8 +30,12 @@ export const Button = ({
   disabled,
   children,
   ClassName,
+  href,
+  target,
+  rel,
+  onClick,
 }: Props) => {
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
 
   useEffect(() => {
     if (buttonRef.current) {
@@ -81,13 +89,30 @@ export const Button = ({
       break;
   }
 
+  // Si href est défini, on rend un lien <a>, sinon un <button>
+  if (href) {
+    return (
+      <a
+        ref={buttonRef as React.RefObject<HTMLAnchorElement>}
+        href={href}
+        target={target}
+        rel={rel}
+        className={clsx(variantStyles, ClassName, disabled && "pointer-events-none opacity-50")}
+        onClick={onClick}
+        aria-disabled={disabled}
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
     <button
-      ref={buttonRef}
+      ref={buttonRef as React.RefObject<HTMLButtonElement>}
       type="button"
       className={clsx(variantStyles, ClassName)}
-      onClick={() => alert("is clicked")}
       disabled={disabled}
+      onClick={onClick ?? (() => alert("is clicked"))}
     >
       {children}
     </button>

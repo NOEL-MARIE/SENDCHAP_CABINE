@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Container } from "@/app/ui/component/container/container";
 import { Button } from "@/app/ui/design_system/Button/Button";
 import Image from "next/image";
@@ -16,10 +16,43 @@ export const HeroTop = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
+  const changingTextRef = useRef<HTMLSpanElement>(null);
+
+  const keywords = [
+    "Développeur Front-End",
+    "Développeur Vue.js",
+    "Passionné de design",
+    "Créatif curieux",
+    "Technophile",
+  ];
+
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!changingTextRef.current) return;
+
+      // Animation de disparition
+      gsap.to(changingTextRef.current, {
+        opacity: 0,
+        y: -20,
+        duration: 0.4,
+        onComplete: () => {
+          setCurrentWordIndex((prev) => (prev + 1) % keywords.length);
+          gsap.fromTo(
+            changingTextRef.current,
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.4 }
+          );
+        },
+      });
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Titre principal
       gsap.fromTo(
         titleRef.current,
         { opacity: 0, y: -80, rotateX: 45 },
@@ -36,7 +69,6 @@ export const HeroTop = () => {
         }
       );
 
-      // Sous-titre
       gsap.fromTo(
         subtitleRef.current,
         { opacity: 0, x: -100, scale: 0.8 },
@@ -53,7 +85,6 @@ export const HeroTop = () => {
         }
       );
 
-      // Bouton
       gsap.fromTo(
         buttonRef.current,
         { opacity: 0, y: 50, scale: 0.5, rotate: -20 },
@@ -71,7 +102,6 @@ export const HeroTop = () => {
         }
       );
 
-      // Image
       gsap.fromTo(
         imageRef.current,
         { opacity: 0, x: 100, scale: 0.8, rotateY: 30 },
@@ -89,7 +119,6 @@ export const HeroTop = () => {
         }
       );
 
-      // Badge
       gsap.fromTo(
         badgeRef.current,
         { opacity: 0, y: 60, rotate: -10 },
@@ -123,21 +152,24 @@ export const HeroTop = () => {
             className="text-2xl sm:text-3xl md:text-4xl capitalize font-FleurDeLeah leading-tight"
             ref={titleRef}
           >
+            <p>Je suis Gonzague Noël-Marie François</p>
             <p>
-              De Gonzague is a
-              <span className="text-primary_folio"> web designer</span> and
+              <span className="text-primary_folio" ref={changingTextRef}>
+                {keywords[currentWordIndex]}
+              </span>
             </p>
-            <p className="text-primary_folio">front-end developer</p>
           </div>
 
           <p
             className="capitalize text-gray_folio text-base sm:text-lg md:text-xl font-FleurDeLeah mt-4 max-w-md"
             ref={subtitleRef}
           >
-            He crafts responsive websites where technologies meet creativity
+            Il conçoit des sites web responsifs où les technologies rencontrent la créativité
           </p>
 
-          <Button ClassName="flex items-center justify-center px-6 py-3 mt-6 transition-all duration-700">
+          <Button
+            ClassName="flex items-center justify-center px-6 py-3 mt-6 transition-all duration-700"
+          >
             <p className="drop-shadow-2xl font-extrabold capitalize animate-bounce text-base sm:text-lg">
               Contact me !!
             </p>

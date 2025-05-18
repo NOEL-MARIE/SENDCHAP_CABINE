@@ -1,13 +1,14 @@
 import clsx from "clsx";
-import Image from "next/image"; // Import du composant Image de Next.js
+import Image from "next/image";
 import { Button } from "../../design_system/Button/Button";
 import { FaGreaterThanEqual } from "react-icons/fa6";
 
 interface InfoContainerData {
-  imageSrc: string; // Lien de l'image
-  subTitle: string; // Sous-titre
-  title: string; // Titre principal
-  description: string; // Description
+  imageSrc: string;
+  subTitle: string;
+  title: string;
+  description: string;
+  href_Project?: string; // Propriété optionnelle pour le lien
 }
 
 interface InfoContainerProps {
@@ -16,22 +17,28 @@ interface InfoContainerProps {
     | "container2"
     | "container3"
     | "container4"
-    | "container5"; // Choix du conteneur
+    | "container5";
 }
 
 const data: Record<string, InfoContainerData> = {
   container1: {
     imageSrc: "/asset/Project_Affiche_1.png",
-    subTitle: "Sous-titre 1",
-    title: "Titre 1",
-    description: "Description détaillée pour l'élément 1.",
+    subTitle: "Développeur Front-End",
+    title: "Mon Portfolio Personnel",
+    description:
+      " Ce site a été conçu pour présenter mon profil professionnel de manière claire, moderne et interactive.",
+    href_Project:
+      "https://ctrl-code-bx8ai1e5z-noel-maries-projects.vercel.app/",
   },
+
   container2: {
     imageSrc: "/asset/Project_Affiche_2.png",
-    subTitle: "Sous-titre 2",
-    title: "Titre 2",
-    description: "Description détaillée pour l'élément 2.",
+    subTitle: "Site Vitrine",
+    title: "Black Pearl",
+    description:
+      " Ce site présente nos offres, notre vision, ainsi que les services que nous proposons.",
   },
+
   container3: {
     imageSrc: "/asset/ChatGPT Image 3 avr. 2025, 12_48_19.png",
     subTitle: "Sous-titre 3",
@@ -56,7 +63,6 @@ export const BoxInfo = ({ variant }: InfoContainerProps) => {
   const item = data[variant];
 
   if (!item) {
-    // Gestion des cas où le variant n'est pas valide
     return (
       <div
         className={clsx(
@@ -82,8 +88,8 @@ export const BoxInfo = ({ variant }: InfoContainerProps) => {
         <Image
           src={item.imageSrc}
           alt={item.title}
-          layout="fill" // Remplit le conteneur parent
-          objectFit="contain" // Gère l'ajustement de l'image
+          layout="fill"
+          objectFit="contain"
           className="rounded-t-md"
         />
       </div>
@@ -99,21 +105,32 @@ export const BoxInfo = ({ variant }: InfoContainerProps) => {
 
       {/* Partie 3 : Titre et description */}
       <div className={clsx("flex-1 p-4 flex flex-col gap-2")}>
-        {/* Titre */}
         <h3 className={clsx("text-lg font-bold text-gray_folio")}>
           {item.title}
         </h3>
-        {/* Description */}
-        <p className={clsx("text-gray_folio break-words")}>{item.description}</p>
+        <p className={clsx("text-gray_folio break-words")}>
+          {item.description}
+        </p>
       </div>
+
+      {/* Partie 4 : Boutons avec liens */}
       <div className="flex pb-6 justify-between px-6">
-        {" "}
-        <Button>
-          {" "}
-          Live <span>{"<~>"}</span>
-        </Button>
+        {item.href_Project ? (
+          <Button
+            href={item.href_Project}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="live"
+          >
+            Live <span>{"<~>"}</span>
+          </Button>
+        ) : (
+          <Button variant="live" disabled>
+            Live <span>{"<~>"}</span>
+          </Button>
+        )}
+
         <Button variant="cached">
-          {" "}
           Cached <FaGreaterThanEqual />
         </Button>
       </div>
