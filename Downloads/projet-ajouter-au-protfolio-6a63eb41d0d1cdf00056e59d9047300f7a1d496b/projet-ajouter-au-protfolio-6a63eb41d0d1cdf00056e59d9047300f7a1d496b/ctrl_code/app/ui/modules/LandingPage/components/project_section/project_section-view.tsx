@@ -81,17 +81,11 @@ export const Projectsectionview = () => {
 
       {/* Boxes container */}
       <div className="flex flex-col md:flex-row justify-around items-center gap-8 md:gap-0">
-        {[0, 1, 2].map((i) => (
-          <div
-            key={i}
-            ref={(el) => {
-              if (el) boxesRef.current[i] = el;
-            }}
-            className="w-full max-w-xs md:max-w-[300px]"
-          >
-            <BoxInfo variant={`container${i + 1}`} />
-          </div>
-        ))}
+      
+            <BoxInfo variant='container1'></BoxInfo>
+            <BoxInfo variant='container2'></BoxInfo>
+         
+        
       </div>
     </div>
   );

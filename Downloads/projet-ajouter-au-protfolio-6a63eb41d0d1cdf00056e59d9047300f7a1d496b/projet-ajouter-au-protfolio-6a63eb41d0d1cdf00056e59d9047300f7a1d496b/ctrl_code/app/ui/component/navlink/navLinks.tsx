@@ -2,11 +2,19 @@
 import { usePathname } from "next/navigation";
 
 interface Props {
-  varianthash?: "home" | "about-me" | "works" | "contacts" | "all-media" | "my-fun-facts" | "small-projects" | "complete-apps";
+  varianthash?:
+    | "home"
+    | "about-me"
+    | "works"
+    | "contacts"
+    | "all-media"
+    | "my-fun-facts"
+    | "small-projects"
+    | "complete-apps";
 }
 
 export const NavbarHashtags = ({ varianthash = "home" }: Props) => {
-  const pathname = usePathname(); // Récupérer le chemin actuel
+  const pathname = usePathname() ?? "/";
 
   // Texte affiché en fonction de `varianthash`
   const displayText =
@@ -26,8 +34,14 @@ export const NavbarHashtags = ({ varianthash = "home" }: Props) => {
       ? "complete apps"
       : "home";
 
-  // Vérifie si le lien est actif en fonction du chemin
-  const isActive = pathname === `/${varianthash === "home" ? "" : varianthash}`;
+  // Normalisation en minuscules
+  const normalizedPathname = pathname.toLowerCase();
+  const normalizedHash = varianthash === "home" ? "/" : `/${varianthash.toLowerCase()}`;
+
+  // Vérifie si le lien est actif (exact ou début de chemin)
+  const isActive =
+    normalizedPathname === normalizedHash ||
+    normalizedPathname.startsWith(normalizedHash + "/");
 
   return (
     <div className="flex space-x-4 items-center">

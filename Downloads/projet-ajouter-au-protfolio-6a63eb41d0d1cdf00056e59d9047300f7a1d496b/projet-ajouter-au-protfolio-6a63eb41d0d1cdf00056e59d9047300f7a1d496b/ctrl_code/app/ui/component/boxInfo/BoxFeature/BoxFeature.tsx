@@ -41,11 +41,47 @@ export const BoxFeature = ({
     );
   }, []);
 
+  const handleHover = () => {
+    const box = boxRef.current;
+    if (!box) return;
+
+    for (let i = 0; i < 7; i++) {
+      const star = document.createElement("span");
+      star.innerText = "★";
+      star.className = "absolute text-primary_folio text-7xl pointer-events-none";
+      box.appendChild(star);
+
+      gsap.set(star, {
+        x: 0,
+        y: 0,
+        opacity: 1,
+        scale: 0.5,
+        top: "50%",
+        left: "50%",
+        position: "absolute",
+      });
+
+      const angle = Math.random() * Math.PI * 2;
+      const radius = 30 + Math.random() * 40;
+
+      gsap.to(star, {
+        x: Math.cos(angle) * radius,
+        y: Math.sin(angle) * radius,
+        opacity: 0,
+        scale: 1.2,
+        duration: 1.2,
+        ease: "power2.out",
+        onComplete: () => star.remove(),
+      });
+    }
+  };
+
   return (
     <div
       ref={boxRef}
+      onMouseEnter={handleHover}
       className={clsx(
-        "w-[196px] h-[143px] bg-Black_folio shadow-lg p-6 border border-gray_folio text-gray_folio font-FiraCode flex flex-col",
+        "relative w-[196px] h-[143px] bg-Black_folio shadow-lg p-6 border border-gray_folio text-gray_folio font-FiraCode flex flex-col ",
         className
       )}
     >

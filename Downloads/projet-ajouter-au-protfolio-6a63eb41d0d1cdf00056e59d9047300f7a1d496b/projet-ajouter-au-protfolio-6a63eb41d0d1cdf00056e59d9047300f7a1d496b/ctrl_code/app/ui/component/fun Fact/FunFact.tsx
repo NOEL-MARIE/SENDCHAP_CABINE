@@ -96,7 +96,7 @@ export const FunFacts = () => {
         <div
           className={clsx(
             "w-[639px] mb-24 flex flex-col",
-            "font-FiraCode text-gray_folio border border-[#ABB2BF] p-1",
+            "font-FiraCode text-gray_folio hover:border border-[#ABB2BF] p-1",
             "transform transition-all duration-500 ease-in-out hover:scale-105"
           )}
           style={{ height: "185px" }}
@@ -108,7 +108,7 @@ export const FunFacts = () => {
                 {group.map((fact, factIndex) => (
                   <div
                     key={`${groupIndex}-${factIndex}`}
-                    className="flex items-center gap-2 border border-[#ABB2BF] px-3 py-2 transition-transform duration-500 ease-in-out transform hover:translate-x-2"
+                    className="flex items-center gap-2 hover:border border-[#ABB2BF] px-3 py-2 transition-transform duration-500 ease-in-out transform hover:translate-x-2"
                     style={{
                       width: `${fact.width}px`,
                       height: `${fact.height}px`,

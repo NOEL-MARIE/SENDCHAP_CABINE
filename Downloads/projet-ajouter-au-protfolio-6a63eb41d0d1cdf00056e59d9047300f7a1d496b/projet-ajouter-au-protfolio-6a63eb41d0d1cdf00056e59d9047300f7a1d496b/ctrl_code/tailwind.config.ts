@@ -9,7 +9,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        Black_folio: "#282c33",
+        Black_folio: "#2c3036",
+        Black_folio1: "#282c33",
         primary_folio: "#c778dd",
         gray_folio: "#ABB2BF",
         /* Hover colors */

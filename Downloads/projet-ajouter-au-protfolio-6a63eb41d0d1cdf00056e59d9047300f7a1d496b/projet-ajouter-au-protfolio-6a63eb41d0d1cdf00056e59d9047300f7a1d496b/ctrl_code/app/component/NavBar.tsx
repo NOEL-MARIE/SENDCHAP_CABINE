@@ -58,7 +58,8 @@ const Navbar = () => {
   return (
     <>
       {/* Media composant, fixé */}
-      <Media className="ml-5 z-[10000] fixed top-0 left-0 isolation-isolate pointer-events-none" />
+      {/* <Image src="/asset/Svg/Dots.svg" alt="Dots.svg" className="z-0" width={50} height={50}/> */}
+      <Media className="ml-40 z-[10000] fixed top-0 left-0 isolation-isolate pointer-events-none" />
 
       <nav
         id="navbarWrapper"

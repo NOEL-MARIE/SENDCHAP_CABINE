@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const About_Me = () => {
   const textRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLImageElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null); // div au lieu de <Image />
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -26,11 +26,7 @@ export const About_Me = () => {
       defaults: { ease: "power2.out", duration: 1 },
     });
 
-    tl.fromTo(
-      textRef.current,
-      { opacity: 0, x: -50 },
-      { opacity: 1, x: 0 }
-    )
+    tl.fromTo(textRef.current, { opacity: 0, x: -50 }, { opacity: 1, x: 0 })
       .fromTo(
         imageRef.current,
         { opacity: 0, x: 50 },
@@ -46,7 +42,10 @@ export const About_Me = () => {
   }, []);
 
   return (
-    <div id="about-me" className="w-full px-4 sm:px-8 md:px-12 lg:px-0 max-w-6xl mx-auto">
+    <div
+      id="about-me"
+      className="w-full px-4 sm:px-8 md:px-12 lg:px-0 max-w-6xl mx-auto"
+    >
       <Hashtag varianthash="aboute me" className="pb-7" />
 
       <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-8 md:gap-12">
@@ -64,12 +63,12 @@ export const About_Me = () => {
             j’explore sans relâche les dernières technologies et frameworks pour
             repousser les limites du possible. Chaque projet est un défi que je
             relève avec discipline, courage et détermination. 🔎 Mes valeurs :
-            
-            ✅ Persévérance – Rien ne m’arrête face aux défis 💪
-            ✅ Courage – Oser l’innovation et affronter l’inconnu 🦾
-            ✅ Discipline – La clé du succès et de l’excellence 🏆
+            ✅ Persévérance – Rien ne m’arrête face aux défis 💪 ✅ Courage –
+            Oser l’innovation et affronter l’inconnu 🦾 ✅ Discipline – La clé
+            du succès et de l’excellence 🏆
             <span className="italic block my-3">
-              &rdquo;La discipline est le pont entre les objectifs et les réalisations.&rdquo; – Jim Rohn 💬
+              &rdquo;La discipline est le pont entre les objectifs et les
+              réalisations.&rdquo; – Jim Rohn 💬
             </span>
             Besoin d’un site web percutant et efficace ? Parlons-en ! 🎯
           </div>
@@ -83,20 +82,28 @@ export const About_Me = () => {
           </Button>
         </div>
 
-        {/* Image */}
-        <div className="w-full md:w-1/2 flex justify-center items-center mb-6 md:mb-0">
-          <Image
-            ref={imageRef}
-            src={"/asset/Images/one piece.jpeg"}
-            alt="one piece.jpeg"
-            width={539}
-            height={200} 
-            className=""
-          />
+        {/* Image + Vidéo au survol */}
+        <div className="w-full md:w-1/2 flex  mb-6 md:mb-0">
+          <div ref={imageRef} className="relative  group overflow-hidden ">
+            {/* Image */}
+            <Image
+              src="/asset/Images/one piece.jpeg"
+              alt="one piece"
+              width={539}
+              height={200}
+              className=" object-cover transition-opacity duration-300 group-hover:opacity-0"
+            />
+            <Image
+              src="/asset/Luffy_Gif.gif"
+              alt="one piece"
+              width={239}
+              height={200}
+              className="absolute top-0 left-0 w-full h-full object-contain opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            />
+            {/* Vidéo */}
+          </div>
         </div>
       </div>
-
-    
     </div>
   );
 };

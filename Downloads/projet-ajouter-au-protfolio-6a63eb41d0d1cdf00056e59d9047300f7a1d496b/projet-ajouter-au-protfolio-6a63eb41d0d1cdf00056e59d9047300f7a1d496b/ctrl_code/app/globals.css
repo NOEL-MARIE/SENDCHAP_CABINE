@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  @keyframes cycleColors {
+    0%   { background-color: #ff0000; }   /* rouge */
+    11%  { background-color: #ffa500; }   /* orange */
+    22%  { background-color: #ffff00; }   /* jaune */
+    33%  { background-color: #008000; }   /* vert */
+    44%  { background-color: #0000ff; }   /* bleu */
+    55%  { background-color: #4b0082; }   /* indigo */
+    66%  { background-color: #ee82ee; }   /* violet */
+    77%  { background-color: #00ffff; }   /* cyan */
+    88%  { background-color: #ff69b4; }   /* rose */
+    100% { background-color: #ff0000; }   /* retour au rouge */
+  }
+
+  .group:hover .animate-color-cycle {
+    animation: cycleColors 3s infinite;
+  }
+}
 :root {
   --background: #ffffff;
   --foreground: #171717;

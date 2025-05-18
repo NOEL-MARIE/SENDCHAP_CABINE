@@ -21,13 +21,13 @@ interface InfoContainerProps {
 
 const data: Record<string, InfoContainerData> = {
   container1: {
-    imageSrc: "/asset/HeroTopIm.jpg",
+    imageSrc: "/asset/Project_Affiche_1.png",
     subTitle: "Sous-titre 1",
     title: "Titre 1",
     description: "Description détaillée pour l'élément 1.",
   },
   container2: {
-    imageSrc: "/asset/ChatGPT Image 8 avr. 2025, 02_10_38.png",
+    imageSrc: "/asset/Project_Affiche_2.png",
     subTitle: "Sous-titre 2",
     title: "Titre 2",
     description: "Description détaillée pour l'élément 2.",

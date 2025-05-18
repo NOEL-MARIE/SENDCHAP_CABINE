@@ -22,7 +22,7 @@ export default function Home() {
   }
 
   return (
-    <div className="bg-Black_folio">
+    <div className="bg-Black_folio1">
       <Layout ClassName="bg-Black_folio w-screen h-screen">
         <LandingPageContainer />
       </Layout>

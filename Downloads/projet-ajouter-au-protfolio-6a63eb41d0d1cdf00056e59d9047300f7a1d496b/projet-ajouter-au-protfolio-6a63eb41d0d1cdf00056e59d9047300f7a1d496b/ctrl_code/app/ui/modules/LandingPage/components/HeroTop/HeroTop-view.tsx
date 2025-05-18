@@ -137,10 +137,7 @@ export const HeroTop = () => {
             He crafts responsive websites where technologies meet creativity
           </p>
 
-          <Button
-            ClassName="flex items-center justify-center px-6 py-3 mt-6 transition-all duration-700"
-            
-          >
+          <Button ClassName="flex items-center justify-center px-6 py-3 mt-6 transition-all duration-700">
             <p className="drop-shadow-2xl font-extrabold capitalize animate-bounce text-base sm:text-lg">
               Contact me !!
             </p>
@@ -158,10 +155,10 @@ export const HeroTop = () => {
             priority
           />
           <div
-            className="w-fit p-1 mt-5 ml-0 md:ml-9 border justify-center   border-gray_folio flex items-center"
+            className="p-1 w-[360px] mt-5 border justify-center group border-gray_folio flex items-center"
             ref={badgeRef}
           >
-            <span className="h-4 w-4 bg-primary_folio m-2.5 flex"></span>
+            <span className="h-4 w-4 m-2.5 flex bg-primary_folio animate-color-cycle"></span>
             <span className="capitalize text-gray_folio flex items-center pt-1 text-sm sm:text-base">
               front-end developer on <span className="ml-1">DevStudio</span>
             </span>
