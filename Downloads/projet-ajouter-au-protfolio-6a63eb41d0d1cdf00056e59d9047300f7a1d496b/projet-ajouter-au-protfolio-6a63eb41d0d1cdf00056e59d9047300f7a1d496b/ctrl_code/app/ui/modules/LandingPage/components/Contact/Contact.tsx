@@ -34,17 +34,21 @@ export const Contact = () => {
   }, []);
 
   return (
-    <div ref={contactRef} id="contacts" className="pt-10">
+    <div
+      ref={contactRef}
+      id="contacts"
+      className="pt-10 px-4 sm:px-6 md:px-0 max-w-6xl mx-auto"
+    >
       <Hashtag varianthash="contacts" />
-      <div className="flex flex-row justify-between mt-6 pb-14 items-center">
-        <div>
-          <p className="font-FleurDeLeah text-justify text-gray_folio">
+      <div className="flex flex-col md:flex-row justify-between mt-6 pb-14 items-center gap-8 md:gap-0">
+        <div className="md:w-1/2 text-center md:text-left">
+          <p className="font-FleurDeLeah text-gray_folio text-base sm:text-lg leading-relaxed">
             I’m interested in freelance opportunities. <br />
             However, if you have other request or question, don’t hesitate to
             contact me
           </p>
         </div>
-        <div>
+        <div className="md:w-1/2 flex justify-center md:justify-end w-full">
           <Contact_box />
         </div>
       </div>

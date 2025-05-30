@@ -37,6 +37,8 @@ const data: Record<string, InfoContainerData> = {
     title: "Black Pearl",
     description:
       " Ce site présente nos offres, notre vision, ainsi que les services que nous proposons.",
+    href_Project:
+      "https://blackpearl-bbshwutzz-noel-maries-projects.vercel.app",
   },
 
   container3: {
@@ -67,7 +69,7 @@ export const BoxInfo = ({ variant }: InfoContainerProps) => {
       <div
         className={clsx(
           "border border-red-500 font-FiraCode flex flex-col",
-          "h-[391px] w-[330.58px] justify-center items-center text-center text-red-600"
+          "h-[391px] w-full max-w-[330.58px] justify-center items-center text-center text-red-600"
         )}
       >
         <p>Erreur : Conteneur non trouvé</p>
@@ -80,7 +82,8 @@ export const BoxInfo = ({ variant }: InfoContainerProps) => {
     <div
       className={clsx(
         "border border-gray_folio text-gray_folio font-FiraCode flex flex-col",
-        "h-[391px] w-[330.58px]"
+        "h-auto w-full max-w-[330.58px]",
+        "sm:h-[391px]"
       )}
     >
       {/* Partie 1 : Image */}
@@ -88,16 +91,19 @@ export const BoxInfo = ({ variant }: InfoContainerProps) => {
         <Image
           src={item.imageSrc}
           alt={item.title}
-          layout="fill"
-          objectFit="contain"
+          fill
+          style={{ objectFit: "contain" }}
           className="rounded-t-md"
+          priority
+          sizes="(max-width: 640px) 100vw, 330px"
         />
       </div>
 
       {/* Partie 2 : Sous-titre */}
       <div
         className={clsx(
-          "h-[50px] flex items-center justify-center bg-Black_folio text-gray_folio border-y border-gray_folio"
+          "h-[50px] flex items-center justify-center bg-Black_folio text-gray_folio border-y border-gray_folio",
+          "text-sm sm:text-base px-2 text-center"
         )}
       >
         {item.subTitle}
@@ -108,29 +114,30 @@ export const BoxInfo = ({ variant }: InfoContainerProps) => {
         <h3 className={clsx("text-lg font-bold text-gray_folio")}>
           {item.title}
         </h3>
-        <p className={clsx("text-gray_folio break-words")}>
+        <p className={clsx("text-gray_folio break-words text-sm sm:text-base")}>
           {item.description}
         </p>
       </div>
 
       {/* Partie 4 : Boutons avec liens */}
-      <div className="flex pb-6 justify-between px-6">
+      <div className="flex flex-col  sm:flex-row gap-3 sm:gap-0 pb-6 justify-between px-6">
         {item.href_Project ? (
           <Button
             href={item.href_Project}
             target="_blank"
             rel="noopener noreferrer"
             variant="live"
+            ClassName="w-full text-center sm:w-auto"
           >
             Live <span>{"<~>"}</span>
           </Button>
         ) : (
-          <Button variant="live" disabled>
+          <Button variant="live" disabled ClassName="w-full sm:w-auto">
             Live <span>{"<~>"}</span>
           </Button>
         )}
 
-        <Button variant="cached">
+        <Button variant="cached" ClassName="w-full sm:w-auto">
           Cached <FaGreaterThanEqual />
         </Button>
       </div>

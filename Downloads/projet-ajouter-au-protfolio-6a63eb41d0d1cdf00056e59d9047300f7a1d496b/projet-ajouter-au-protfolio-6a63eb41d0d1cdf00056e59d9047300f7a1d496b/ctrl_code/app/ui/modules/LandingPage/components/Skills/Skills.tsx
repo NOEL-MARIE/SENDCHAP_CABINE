@@ -13,6 +13,13 @@ export const Skills_Page = () => {
   const imageRef = useRef<HTMLImageElement>(null);
   const columnRefs = useRef<HTMLDivElement[]>([]);
 
+  // Pour assigner les refs dynamiquement
+  const addToColumnRefs = (el: HTMLDivElement) => {
+    if (el && !columnRefs.current.includes(el)) {
+      columnRefs.current.push(el);
+    }
+  };
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Animation de l’image à gauche
@@ -59,26 +66,28 @@ export const Skills_Page = () => {
   return (
     <div
       id="works"
-      className="w-[1024px] h-auto flex flex-col gap-9 pb-20"
+      className="w-full max-w-[1024px] px-4 sm:px-6 md:px-0 mx-auto flex flex-col gap-9 pb-20"
       ref={sectionRef}
     >
       <Hashtag varianthash="skills" className="mt-32 mb-8" />
 
-      <div className="flex flex-row items-center flex-wrap gap-4">
+      <div className="flex flex-col md:flex-row items-center flex-wrap gap-8 md:gap-12">
         {/* Illustration à gauche */}
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 w-full md:w-auto flex justify-center md:justify-start">
           <Image
             ref={imageRef}
             src="/asset/Svg/skills-group_img.svg"
             alt="Illustration Design"
             width={349}
             height={282}
+            priority
           />
         </div>
 
         {/* Boîtes de compétences */}
-        <div className="flex justify-between gap-4 ml-auto mr-4">
+        <div className="flex flex-col justify-center items-center md:flex-row md:items-start w-full md:justify-between gap-6 md:gap-8 flex-grow w-full">
           {/* Colonne 1 */}
+          <div ref={addToColumnRefs} className="flex flex-col gap-2 md:w-1/3">
             <BoxFeature
               title="Languages"
               description="JavaScript • TypeScript • HTML5 • CSS3"
@@ -86,9 +95,7 @@ export const Skills_Page = () => {
           </div>
 
           {/* Colonne 2 */}
-          <div
-            className="flex flex-col gap-2"
-          >
+          <div ref={addToColumnRefs} className="flex flex-col gap-2 md:w-1/3">
             <BoxFeature
               title="Databases"
               description="Firebase Firestore • Supabase • MongoDB"
@@ -100,9 +107,7 @@ export const Skills_Page = () => {
           </div>
 
           {/* Colonne 3 */}
-          <div
-            className="flex flex-col gap-2"
-          >
+          <div ref={addToColumnRefs} className="flex flex-col gap-2 md:w-1/3">
             <BoxFeature
               title="Frameworks"
               description="Vue.js • Next.js • React.js"
@@ -114,5 +119,6 @@ export const Skills_Page = () => {
           </div>
         </div>
       </div>
+    </div>
   );
 };

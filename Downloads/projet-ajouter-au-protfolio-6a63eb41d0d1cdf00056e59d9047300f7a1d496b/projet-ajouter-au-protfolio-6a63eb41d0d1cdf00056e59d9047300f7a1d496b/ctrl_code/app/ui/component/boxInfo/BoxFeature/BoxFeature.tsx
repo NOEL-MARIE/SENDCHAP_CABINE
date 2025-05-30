@@ -5,7 +5,6 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Enregistrement du plugin ScrollTrigger de GSAP
 gsap.registerPlugin(ScrollTrigger);
 
 interface BoxFeatureProps {
@@ -22,7 +21,6 @@ export const BoxFeature = ({
   const boxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Animation lors du scroll
     gsap.fromTo(
       boxRef.current,
       { opacity: 0, scale: 0.8, y: 50 },
@@ -48,7 +46,8 @@ export const BoxFeature = ({
     for (let i = 0; i < 7; i++) {
       const star = document.createElement("span");
       star.innerText = "★";
-      star.className = "absolute text-primary_folio text-7xl pointer-events-none";
+      star.className =
+        "absolute text-primary_folio text-7xl pointer-events-none";
       box.appendChild(star);
 
       gsap.set(star, {
@@ -81,7 +80,7 @@ export const BoxFeature = ({
       ref={boxRef}
       onMouseEnter={handleHover}
       className={clsx(
-        "relative w-[196px] h-[143px] bg-Black_folio shadow-lg p-6 border border-gray_folio text-gray_folio font-FiraCode flex flex-col ",
+        "relative w-full max-w-[196px] h-auto min-h-[143px] bg-Black_folio shadow-lg p-6 border border-gray_folio text-gray_folio font-FiraCode flex flex-col",
         className
       )}
     >

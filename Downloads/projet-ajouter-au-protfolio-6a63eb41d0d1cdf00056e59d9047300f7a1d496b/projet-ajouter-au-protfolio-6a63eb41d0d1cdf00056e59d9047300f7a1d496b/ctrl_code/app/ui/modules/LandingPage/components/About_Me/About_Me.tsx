@@ -83,7 +83,7 @@ export const About_Me = () => {
         </div>
 
         {/* Image + Vidéo au survol */}
-        <div className="w-full md:w-1/2 flex  mb-6 md:mb-0">
+        <div className="w-full md:w-1/2 flex justify-center  mb-6 md:mb-0">
           <div ref={imageRef} className="relative  group overflow-hidden ">
             {/* Image */}
             <Image

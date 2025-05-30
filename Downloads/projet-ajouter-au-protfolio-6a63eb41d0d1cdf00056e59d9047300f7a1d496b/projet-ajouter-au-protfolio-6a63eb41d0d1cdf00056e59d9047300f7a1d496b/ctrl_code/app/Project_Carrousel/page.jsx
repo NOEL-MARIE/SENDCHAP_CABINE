@@ -73,7 +73,7 @@ const App = () => {
   };
 
   return (
-    <div className="bg-Black_folio min-h-screen">
+    <div className="bg-Black_folio1 min-h-screen">
       <Layout className="w-screen h-screen">
         <motion.main
           className="h-screen flex flex-col items-center justify-center bg-Black_folio1"
@@ -85,7 +85,7 @@ const App = () => {
           <div className="flex flex-col items-center my-6">
             <div className="relative h-[500px] w-[350px] overflow-hidden sm:h-[400px] sm:w-[300px] max-[375px]:h-[400px] max-[375px]:w-[300px] rounded-lg shadow-lg">
               <AnimatePresence initial={false} custom={direction}>
-                <motion.div
+                <motion.img
                   key={page}
                   custom={direction}
                   variants={sliderVariants}
@@ -97,11 +97,9 @@ const App = () => {
                   dragConstraints={{ left: 0, right: 0 }}
                   dragElastic={1}
                   onDragEnd={onDragEnd}
-                  style={{
-                    backgroundImage: `url(${IMAGES[imageIndex].imageSrc})`,
-                  }}
-                  className="absolute h-full w-full bg-cover bg-center cursor-grab active:cursor-grabbing rounded-lg"
-                  aria-label={`Image ${imageIndex + 1} of ${IMAGES.length}`}
+                  src={IMAGES[imageIndex].imageSrc}
+                  alt={`Image ${imageIndex + 1} of ${IMAGES.length}`}
+                  className="absolute h-full w-full object-cover cursor-grab active:cursor-grabbing rounded-lg select-none"
                 />
               </AnimatePresence>
             </div>

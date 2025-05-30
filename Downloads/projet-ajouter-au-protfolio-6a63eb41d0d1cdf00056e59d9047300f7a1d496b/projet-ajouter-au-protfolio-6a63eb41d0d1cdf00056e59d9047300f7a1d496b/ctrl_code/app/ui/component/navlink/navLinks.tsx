@@ -30,15 +30,25 @@ const displayTextMap: Record<NonNullable<Props["varianthash"]>, string> = {
 export const NavbarHashtags = ({ varianthash = "home" }: Props) => {
   const pathname = usePathname() ?? "/";
 
-  const displayText = displayTextMap[varianthash];
-
+  // Normalisation des chaînes en minuscules pour éviter les erreurs de casse
   const normalizedPathname = pathname.toLowerCase();
-  const normalizedHash =
-    varianthash === "home" ? "/" : `/${varianthash.toLowerCase()}`;
 
+  // Normalisation du hash : on remplace underscore par tiret et on met en minuscules
+  // Cela permet d’avoir des URLs cohérentes même si varianthash a un underscore
+  const normalizedHash =
+    varianthash === "home"
+      ? "/"
+      : `/${varianthash.toLowerCase().replace(/_/g, "-")}`;
+
+  // Détection de l’état actif :
+  // actif si pathname est exactement égal au hash
+  // ou si pathname commence par hash suivi d’un slash (ex: /about-me/xyz)
   const isActive =
     normalizedPathname === normalizedHash ||
     normalizedPathname.startsWith(normalizedHash + "/");
+
+  // Texte affiché
+  const displayText = displayTextMap[varianthash];
 
   return (
     <div className="flex space-x-4 items-center">

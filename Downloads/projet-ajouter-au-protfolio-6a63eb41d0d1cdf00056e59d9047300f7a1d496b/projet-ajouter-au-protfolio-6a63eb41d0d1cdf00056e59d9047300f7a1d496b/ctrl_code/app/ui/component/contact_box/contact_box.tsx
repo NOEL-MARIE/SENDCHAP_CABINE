@@ -16,7 +16,7 @@ export const Contact_box = ({
   return (
     <div
       className={clsx(
-        "w-[254px] h-[141px] bg-Black_folio shadow-lg p-4    justify-between  border border-gray_folio text-gray_folio font-FiraCode flex flex-col",
+        "w-full max-w-[254px] h-auto bg-Black_folio shadow-lg p-4 justify-between border border-gray_folio text-gray_folio font-FiraCode flex flex-col",
         className
       )}
     >
@@ -24,7 +24,7 @@ export const Contact_box = ({
         <Mail className="text-primary_folio" size={20} />
         <h3 className="text-md text-white font-semibold">{title}</h3>
       </div>
-      <p className="text-sm text-gray_folio font-FleurDeLeah pt-2">
+      <p className="text-sm text-gray_folio font-FleurDeLeah pt-2 break-words">
         {description}
       </p>
     </div>
